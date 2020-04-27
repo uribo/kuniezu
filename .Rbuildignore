@@ -4,3 +4,4 @@
 ^Dockerfile$
 ^docker-compose\.yaml$
 ^\.env$
+^data-raw$

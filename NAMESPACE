@@ -3,3 +3,4 @@
 export(parse_lat_dohunbyo)
 export(parse_lon_dohunbyo)
 export(replace_dohunbyo_kanji)
+export(st_nearest_jgd2011)
