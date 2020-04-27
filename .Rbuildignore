@@ -5,3 +5,4 @@
 ^docker-compose\.yaml$
 ^\.env$
 ^data-raw$
+^README\.Rmd$
