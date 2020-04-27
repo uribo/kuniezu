@@ -3,14 +3,21 @@
 
 # kuniezu
 
-*国絵図
-(kuniezu)*
+*国絵図 (kuniezu)*
 
 <!-- badges: start -->
 
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/kuniezu)](https://cran.r-project.org/package=kuniezu)
+[![minimal R
+version](https://img.shields.io/badge/R%3E%3D-3.3.0-blue.svg)](https://cran.r-project.org/)
+\[![R-CMD-check](https://github.com/uribo/kuniezu/workflows/R-CMD-check/badge.svg)\]
+[![Codecov test
+coverage](https://codecov.io/gh/uribo/kuniezu/branch/master/graph/badge.svg)](https://codecov.io/gh/uribo/kuniezu?branch=master)
 <!-- badges: end -->
 
-Rパッケージです。
+`{kuniezu}`は日本の国土地理に関する補助関数およびデータセットを提供するRパッケージです。
 
 ## インストール
 
