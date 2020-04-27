@@ -9,7 +9,13 @@ Maintainer: Shinya Uryu <suika1127@gmail.com>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
 URL: https://github.com/uribo/kuniezu
 BugReports: https://github.com/uribo/kuniezu/issues
+Imports: 
+    parzer (>= 0.1.4),
+    stringr (>= 1.4.0)
+Suggests: 
+    testthat (>= 2.1.0)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.0
