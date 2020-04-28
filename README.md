@@ -12,7 +12,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/kuniezu)](https://cran.r-project.org/package=kuniezu)
 [![minimal R
 version](https://img.shields.io/badge/R%3E%3D-3.3.0-blue.svg)](https://cran.r-project.org/)
-\[![R-CMD-check](https://github.com/uribo/kuniezu/workflows/R-CMD-check/badge.svg)\]
+![R-CMD-check](https://github.com/uribo/kuniezu/workflows/R-CMD-check/badge.svg)
 [![Codecov test
 coverage](https://codecov.io/gh/uribo/kuniezu/branch/master/graph/badge.svg)](https://codecov.io/gh/uribo/kuniezu?branch=master)
 <!-- badges: end -->
