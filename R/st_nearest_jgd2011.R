@@ -11,7 +11,7 @@
 st_nearest_jgd2011 <- function(geometry) {
   purrr::map_dbl(
     sf::st_nearest_feature(geometry,
-                           jgd2011_bbox),
-    ~ as.numeric(as.character(jgd2011_bbox[[.x,
+                           jgd2011_bbox4326),
+    ~ as.numeric(as.character(jgd2011_bbox4326[[.x,
                                             "epsg"]])))
 }

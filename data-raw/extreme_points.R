@@ -9,6 +9,9 @@ extreme_points <-
        west = st_point(c(parse_lon_dohunbyo("122\u5ea655\u520657\u79d2"),
                          parse_lat_dohunbyo("24\u5ea627\u520605\u79d2"))),
        south = st_point(c(parse_lon_dohunbyo("136\u5ea604\u520611\u79d2"),
-                          parse_lat_dohunbyo("20\u5ea625\u520631\u79d2"))))
+                          parse_lat_dohunbyo("20\u5ea625\u520631\u79d2")))) %>%
+  purrr::map(
+    ~ st_sfc(.x, crs = 4326) %>%
+      st_transform(crs = 6668))
 
 usethis::use_data(extreme_points, overwrite = TRUE)

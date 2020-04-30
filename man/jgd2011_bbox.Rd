@@ -5,7 +5,7 @@
 \alias{jgd2011_bbox}
 \title{JGD2011 / Japan Plane Rectangular CS}
 \format{
-A sf (CRS EPSG:4326) with 19 rows 3 variables:
+A sf (CRS EPSG:6668) with 19 rows 3 variables:
 \itemize{
 \item system
 \item epsg

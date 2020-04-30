@@ -9,7 +9,9 @@
 pkgload::load_all()
 library(sf)
 library(dplyr)
-if (!dir.exists("data-raw/gm-jpn-all_u_2_2/")) {
+if (!dir.exists("data-raw/gm-jpn-all_u_2_2/"))
+  dir.create("data-raw/gm-jpn-all_u_2_2/")
+if (!file.exists("data-raw/gm-jpn-all_u_2_2/polbnda_jpn.shp")) {
   library(rvest)
   x <-
     read_html("https://www.gsi.go.jp/kankyochiri/gm_jpn.html")
@@ -23,6 +25,7 @@ if (!dir.exists("data-raw/gm-jpn-all_u_2_2/")) {
   )
   unzip(paste0("data-raw/", basename(download_file)),
         exdir = "data-raw")
+  unlink("data-raw/gm-jpn-all_u_2_2.zip")
 }
 
 jdg2011_union <- function(data, system) {
@@ -150,7 +153,6 @@ v12 <-
   filter(nam %in% c("Hokkai Do")) %>%
   filter(!adm_code %in% unique(c(v11$adm_code, v13$adm_code))) %>%
   jdg2011_union(12)
-
 v11 <-
   v11 %>%
   jdg2011_union(11)
@@ -247,8 +249,13 @@ jgd2011_bbox <-
   tibble::add_column(epsg = epsg_codes,
                      .before = "geometry") %>%
   purrr::modify_at(c(1, 2),
-                   ~ forcats::fct_inorder(as.character(.x)))
+                   ~ forcats::fct_inorder(as.character(.x))) %>%
+  st_transform(crs = 6668)
 
 # mapview::mapview(jgd2011_bbox, zcol = "epsg")
 
+jgd2011_bbox4326 <-
+  sf::st_transform(jgd2011_bbox, crs = 4326)
+
 usethis::use_data(jgd2011_bbox, overwrite = TRUE)
+usethis::use_data(jgd2011_bbox4326, internal = TRUE, overwrite = TRUE)

@@ -3,7 +3,7 @@ globalVariables("jgd2011_bbox")
 #' JGD2011 / Japan Plane Rectangular CS
 #'
 #' @description Japanese Geodetic Datum 2011
-#' @format A sf (CRS EPSG:4326) with 19 rows 3 variables:
+#' @format A sf (CRS EPSG:6668) with 19 rows 3 variables:
 #' - system
 #' - epsg
 #' - geometry

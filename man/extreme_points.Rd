@@ -5,7 +5,7 @@
 \alias{extreme_points}
 \title{The extreme points of Japan}
 \format{
-A four length list consisting of \link[sf:st_point]{st_point}
+A four length list consisting of \link[sf:st_sfc]{sfc}
 }
 \usage{
 extreme_points
@@ -18,10 +18,10 @@ The northernmost position is what the government claims.
 \examples{
 extreme_points
 
+extreme_points$east
+
 require("purrr")
 extreme_points \%>\%
-map(
-  ~ sf::st_sfc(.x, crs = 4326)) \%>\%
 reduce(c)
 }
 \seealso{
