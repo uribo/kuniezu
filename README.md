@@ -61,6 +61,11 @@ title("Created by Shinya Uryu based on Global Map Japan data v2.2",
 任意の座標が日本測地系2011の平面直角座標で示した際にどの区域に該当するかを判定します。
 
 ``` r
-st_nearest_jgd2011(st_sfc(sf::st_point(c(140.778, 36.8)), crs = 4326))
+st_nearest_jgd2011(st_sfc(sf::st_point(c(140.778, 36.8)), 
+                          crs = 4326))
+#> [1] 6677
+
+st_detect_jgd2011(sf::st_sfc(sf::st_point(c(140.112, 36.083)),
+                                     crs = 4326))
 #> [1] 6677
 ```
