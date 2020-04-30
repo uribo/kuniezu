@@ -2,7 +2,7 @@
 % Please edit documentation in R/st_nearest_jgd2011.R
 \name{st_nearest_jgd2011}
 \alias{st_nearest_jgd2011}
-\title{Identify the coordinate system of the coordinates}
+\title{Identify the Japan plane rectangular CS}
 \usage{
 st_nearest_jgd2011(geometry)
 }
@@ -10,10 +10,13 @@ st_nearest_jgd2011(geometry)
 \item{geometry}{geometry (POINT)}
 }
 \description{
-Returns the value when the coordinates of ESPG:4326 given to the input 
+Returns the value when the coordinates of ESPG:4326 given to the input
 are replaced with those of the Japan Plane Rectangular CS.
 }
 \examples{
 library(sf)
 st_nearest_jgd2011(st_sfc(sf::st_point(c(140.778, 36.8)), crs = 4326))
+}
+\seealso{
+\url{https://www.gsi.go.jp/LAW/heimencho.html}
 }

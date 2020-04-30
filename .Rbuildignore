@@ -6,3 +6,4 @@
 ^\.env$
 ^data-raw$
 ^README\.Rmd$
+^\.github$
