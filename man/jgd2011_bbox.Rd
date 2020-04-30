@@ -5,15 +5,31 @@
 \alias{jgd2011_bbox}
 \title{JGD2011 / Japan Plane Rectangular CS}
 \format{
-A tibble with 19 rows 3 variables:
+A sf (CRS EPSG:4326) with 19 rows 3 variables:
+\itemize{
+\item system
+\item epsg
+\item geometry
+}
 }
 \usage{
 jgd2011_bbox
+}
+\value{
+\link[sf:st_sf]{sf}
 }
 \description{
 Japanese Geodetic Datum 2011
 }
 \examples{
 jgd2011_bbox
+}
+\references{
+Global Map Japan \url{https://www.gsi.go.jp/kankyochiri/gm_jpn.html}.
+Created by processing Global Map Japan.
+}
+\author{
+Original polygon data copyright is the Geospatial Information Authority of Japan;
+compiled for R by Shinya Uryu.
 }
 \keyword{datasets}

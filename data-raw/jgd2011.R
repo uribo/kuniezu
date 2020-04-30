@@ -1,347 +1,249 @@
 ####################################
 # 日本測地系2011
 # 平面直角座標系（平成十四年国土交通省告示第九号）
-# ref) https://www.gsi.go.jp/LAW/heimencho.html
+# ref) https://www.gsi.go.jp/LAW/heimencho.html, https://www.gsi.go.jp/sokuchikijun/jpc.html
 # EPSGコード
 # 緯度経度: 6668
 # 平面直角座標系: 6669~6687
-# [todo] 市区町村での厳密な境界に対応
 ####################################
+pkgload::load_all()
 library(sf)
+library(dplyr)
+if (!dir.exists("data-raw/gm-jpn-all_u_2_2/")) {
+  library(rvest)
+  x <-
+    read_html("https://www.gsi.go.jp/kankyochiri/gm_jpn.html")
+  download_file <-
+    x %>%
+    html_nodes(css = "#layout > tr > td.w100p > div > div > div > div:nth-child(6) > div > table > tbody > tr:nth-child(3) > td:nth-child(2) > a") %>%
+    html_attr("href")
+  download.file(
+    download_file,
+    paste0("data-raw/", basename(download_file))
+  )
+  unzip(paste0("data-raw/", basename(download_file)),
+        exdir = "data-raw")
+}
+
+jdg2011_union <- function(data, system) {
+  s_code <-
+    as.character(as.roman(system))
+  s_code <-
+    rlang::arg_match(s_code,
+                     as.character(as.roman(seq_len(19))))
+  d <-
+    data %>%
+    sf::st_union(by_feature = FALSE) %>%
+    sf::st_sf() %>%
+    purrr::update_list(system = s_code)
+  d[, c("system", "geometry")]
+}
+
+x <-
+  st_read("data-raw/gm-jpn-all_u_2_2/polbnda_jpn.shp",
+          stringsAsFactors = FALSE,
+          as_tibble = TRUE) %>%
+  st_transform(crs = 4326) %>%
+  mutate(nam = forcats::fct_inorder(nam)) %>%
+  filter(adm_code != "UNK")
+
+# 北方北緯32度
+# 南方北緯27度
+# 西方東経128度18分
+# 東方東経130度を境界線とする区域内
+v01_bb <-
+  st_bbox(c(xmin = parse_lon_dohunbyo("東経128度18分"),
+                    ymin = parse_lat_dohunbyo("北緯27度"),
+                    xmax = parse_lon_dohunbyo("東経130度0分"),
+                    ymax = parse_lat_dohunbyo("北緯32度"))) %>%
+            st_as_sfc() %>%
+            st_sf(crs = 4326)
+v01 <-
+  x %>%
+  filter(nam %in% c("Kagoshima Ken")) %>%
+  st_crop(v01_bb) %>%
+  rbind(
+    x %>%
+      filter(nam %in% c("Nagasaki Ken"))) %>%
+  jdg2011_union(1)
+v02 <-
+  x %>%
+  filter(nam %in% c("Fukuoka Ken", "Saga Ken", "Kumamoto Ken", "Oita Ken", "Miyazaki Ken")) %>%
+  rbind(
+    x %>%
+      filter(nam %in% c("Kagoshima Ken")) %>%
+      st_join(v01_bb,
+              join = st_disjoint,
+              left = FALSE)
+  ) %>%
+  jdg2011_union(2)
+v03 <-
+  x %>%
+  filter(nam %in% c("Yamaguchi Ken", "Shimane Ken", "Hiroshima Ken")) %>%
+  jdg2011_union(3)
+v04 <-
+  x %>%
+  filter(nam %in% c("Kagawa Ken", "Ehime Ken", "Tokushima Ken", "Kochi Ken")) %>%
+  jdg2011_union(4)
+v05 <-
+  x %>%
+  filter(nam %in% c("Hyogo Ken", "Tottori Ken", "Okayama Ken")) %>%
+  jdg2011_union(5)
+v06 <-
+  x %>%
+  filter(nam %in% c("Mie Ken", "Shiga Ken", "Kyoto Fu", "Osaka Fu", "Fukui Ken", "Nara Ken", "Wakayama Ken")) %>%
+  jdg2011_union(6)
+v07 <-
+  x %>%
+  filter(nam %in% c("Ishikawa Ken", "Toyama Ken", "Gifu Ken", "Aichi Ken")) %>%
+  jdg2011_union(7)
+v08 <-
+  x %>%
+  filter(nam %in% c("Niigata Ken", "Nagano Ken", "Yamanashi Ken", "Shizuoka Ken")) %>%
+  jdg2011_union(8)
+v09 <-
+  x %>%
+  filter(nam %in% c("Fukushima Ken", "Tochigi Ken", "Ibaraki Ken", "Saitama Ken", "Chiba Ken",
+                    "Gunma Ken", "Kanagawa Ken")) %>%
+  rbind(
+    x %>%
+      filter(nam == "Tokyo To") %>%
+      filter(!adm_code %in% c("13421"))
+  ) %>%
+  jdg2011_union(9)
+v10 <-
+  x %>%
+  filter(nam %in% c("Aomori Ken", "Akita Ken", "Yamagata Ken", "Iwate Ken", "Miyagi Ken")) %>%
+  jdg2011_union(10)
+v11 <-
+  x %>%
+  filter(nam %in% c("Hokkai Do")) %>%
+  filter(adm_code %in% c("01202", "01203", "01233", "01236",
+                         "01331", # Masaki Cho --> Matsumae Cho
+                         "01332", "01333", "01334", "01337",
+                         "01343", "01345", "01346",
+                         "01361", "01362", "01363", "01364",
+                         "01370", "01371", "01347", "01367",
+                         "01391", "01392", "01393", "01394",
+                         "01395", "01396", "01397", "01398", "01399",
+                         "01233", "01400",
+                         "01401", "01402", "01403", "01404", "01405",
+                         "01406", "01407", "01408", "01409",
+                         "01571", "01575", "01584"))
+v13 <-
+  x %>%
+  filter(nam %in% c("Hokkai Do")) %>%
+  filter(adm_code %in% c("01207", "01208", "01211", "01223",
+                         "01543", "01544", "01545", "01546", "01547", "01549", "01550",
+                         "01552", "01564",
+                         "01631", "01632", "01633", "01634",
+                         "01637", "01638", "01639", "01642", "01643", "01644",
+                         "01646", "01647", "01648",
+                         "01664", "01665", "01667", "01692",
+                         "01693", "01694",
+                         "01223", "01206", "01636", "01635",
+                         "01668", "01649", "01645", "01641",
+                         "01691", "01661", "01662", "01663", "01695",
+                         "01696", "01697", "01698", "01699", "01700"))
+v12 <-
+  x %>%
+  filter(nam %in% c("Hokkai Do")) %>%
+  filter(!adm_code %in% unique(c(v11$adm_code, v13$adm_code))) %>%
+  jdg2011_union(12)
+
+v11 <-
+  v11 %>%
+  jdg2011_union(11)
+v13 <-
+  v13 %>%
+  jdg2011_union(13)
+# 北緯28度から南であり、かつ東経140度30分から東であり東経143度から西である区域
+v14_bb <-
+  st_bbox(c(xmin = parse_lon_dohunbyo("東経140度30分"),
+            ymin = parse_lat_dohunbyo("北緯28度"),
+            xmax = parse_lon_dohunbyo("東経143度"),
+            ymax = parse_lat_dohunbyo("北緯20度25分30.6585秒"))) %>%
+  st_as_sfc() %>%
+  st_sf(crs = 4326)
+v14 <-
+  x %>%
+  filter(nam %in% c("Tokyo To")) %>%
+  st_crop(v14_bb) %>%
+  jdg2011_union(14)
+# 東経126度から東であり、かつ東経130度から西である区域
+v15_bb <-
+  st_bbox(c(xmin = parse_lon_dohunbyo("東経126度"),
+          ymin = parse_lat_dohunbyo("北緯45度33分28秒"),
+          xmax = parse_lon_dohunbyo("東経130度"),
+          ymax = parse_lat_dohunbyo("北緯20度25分30.6585秒"))) %>%
+  st_as_sfc() %>%
+  st_sf(crs = 4326)
+v15 <-
+  x %>%
+  filter(nam %in% c("Okinawa Ken")) %>%
+  st_crop(v15_bb) %>%
+  jdg2011_union(15)
+# 東経126度から西である区域
+v16_bb <-
+  st_bbox(c(xmin = parse_lon_dohunbyo("東経126度"),
+            ymin = parse_lat_dohunbyo("北緯45度33分28秒"),
+            xmax = parse_lon_dohunbyo("東経122度55分57秒"),
+            ymax = parse_lat_dohunbyo("北緯20度25分30.6585秒"))) %>%
+  st_as_sfc() %>%
+  st_sf(crs = 4326)
+v16 <-
+  x %>%
+  filter(nam %in% c("Okinawa Ken")) %>%
+  st_crop(v16_bb) %>%
+  jdg2011_union(16)
+# 東経130度から東である区域
+v17_bb <-
+  st_bbox(c(xmin = parse_lon_dohunbyo("東経130度"),
+            ymin = parse_lat_dohunbyo("北緯45度33分28秒"),
+            xmax = parse_lon_dohunbyo("東経153度59分12秒"),
+            ymax = parse_lat_dohunbyo("北緯20度25分30.6585秒"))) %>%
+  st_as_sfc() %>%
+  st_sf(crs = 4326)
+v17 <-
+  x %>%
+  filter(nam %in% c("Okinawa Ken")) %>%
+  st_crop(v17_bb) %>%
+  jdg2011_union(17)
+# 北緯28度から南であり、かつ東経140度30分から西である区域
+v18_bb <-
+  st_bbox(c(xmin = parse_lon_dohunbyo("東経122度55分57秒"),
+            ymin = parse_lat_dohunbyo("北緯28度"),
+            xmax = parse_lon_dohunbyo("東経140度30分"),
+            ymax = parse_lat_dohunbyo("北緯20度"))) %>%
+  st_as_sfc() %>%
+  st_sf(crs = 4326)
+v18 <-
+  x %>%
+  filter(nam %in% c("Tokyo To")) %>%
+  st_crop(v18_bb) %>%
+  jdg2011_union(18)
+# 北緯28度から南であり、かつ東経143度から東である区域
+v19_bb <-
+  st_bbox(c(xmin = parse_lon_dohunbyo("東経143度"),
+            ymin = parse_lat_dohunbyo("北緯28度"),
+            xmax = parse_lon_dohunbyo("東経153度59分12秒"),
+            ymax = parse_lat_dohunbyo("北緯20度"))) %>%
+  st_as_sfc() %>%
+  st_sf(crs = 4326)
+v19 <-
+  x %>%
+  filter(nam %in% c("Tokyo To")) %>%
+  st_crop(v19_bb) %>%
+  jdg2011_union(19)
+
 epsg_codes <-
   seq.int(6669, 6687)
 
-jgd2011_bbox_coords <- function(srid) {
-  if (srid %in% c(seq.int(6669L, 6687L)) == TRUE) {
-    glue::glue("https://epsg.io/{srid}") %>%
-      xml2::read_html() %>%
-      rvest::html_nodes(css = '#detailpage > div:nth-child(4) > div > div.col3.minimap-pad > p') %>%
-      rvest::html_text(trim = TRUE) %>%
-      purrr::pluck(3) %>%
-      stringr::str_remove(".+\n") %>%
-      stringr::str_split("\n") %>%
-      purrr::map_dfc(stringr::str_trim) %>%
-      tidyr::separate(V1,
-                      into = c("longitude", "latitude"),
-                      sep = "[:space:]") %>%
-      tidyr::expand(longitude, latitude) %>%
-      purrr::modify_at(c(1, 2),
-                       as.numeric) %>%
-      dplyr::slice(c(1, 3, 4, 2, 1)) %>%
-      as.matrix(ncol = 2) %>%
-      unname()
-  } else {
-    rlang::abort("6669 to 6687")
-  }
-}
-
-epsg_codes %>%
-  purrr::map(
-    jgd2011_bbox_coords
-  ) %>%
-  purrr::set_names(c(paste0("epsg_", epsg_codes))) %>% dput()
-
 jgd2011_bbox <-
-  list(
-    epsg_6669 = structure(
-      c(
-        128.17,
-        130.46,
-        130.46,
-        128.17,
-        128.17,
-        26.96,
-        26.96,
-        34.74,
-        34.74,
-        26.96
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6670 = structure(
-      c(
-        129.76,
-        132.05,
-        132.05,
-        129.76,
-        129.76,
-        30.18,
-        30.18,
-        33.99,
-        33.99,
-        30.18
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6671 = structure(
-      c(
-        130.81,
-        133.49,
-        133.49,
-        130.81,
-        130.81,
-        33.72,
-        33.72,
-        36.38,
-        36.38,
-        33.72
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6672 = structure(
-      c(
-        131.95,
-        134.81,
-        134.81,
-        131.95,
-        131.95,
-        32.69,
-        32.69,
-        34.45,
-        34.45,
-        32.69
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6673 = structure(
-      c(
-        133.13,
-        135.47,
-        135.47,
-        133.13,
-        133.13,
-        34.13,
-        34.13,
-        35.71,
-        35.71,
-        34.13
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6674 = structure(
-      c(
-        134.86,
-        136.99,
-        136.99,
-        134.86,
-        134.86,
-        33.4,
-        33.4,
-        36.33,
-        36.33,
-        33.4
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6675 = structure(
-      c(
-        136.22,
-        137.84,
-        137.84,
-        136.22,
-        136.22,
-        34.51,
-        34.51,
-        37.58,
-        37.58,
-        34.51
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6676 = structure(
-      c(
-        137.32,
-        139.91,
-        139.91,
-        137.32,
-        137.32,
-        34.54,
-        34.54,
-        38.58,
-        38.58,
-        34.54
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6677 = structure(
-      c(
-        138.4,
-        141.11,
-        141.11,
-        138.4,
-        138.4,
-        29.31,
-        29.31,
-        37.98,
-        37.98,
-        29.31
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6678 = structure(
-      c(
-        139.49,
-        142.14,
-        142.14,
-        139.49,
-        139.49,
-        37.73,
-        37.73,
-        41.58,
-        41.58,
-        37.73
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6679 = structure(
-      c(
-        139.34,
-        141.46,
-        141.46,
-        139.34,
-        139.34,
-        41.34,
-        41.34,
-        43.42,
-        43.42,
-        41.34
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6680 = structure(
-      c(
-        140.89,
-        143.61,
-        143.61,
-        140.89,
-        140.89,
-        42.15,
-        42.15,
-        45.54,
-        45.54,
-        42.15
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6681 = structure(
-      c(
-        142.61,
-        145.87,
-        145.87,
-        142.61,
-        142.61,
-        41.87,
-        41.87,
-        44.4,
-        44.4,
-        41.87
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6682 = structure(
-      c(
-        141.2,
-        142.33,
-        142.33,
-        141.2,
-        141.2,
-        24.67,
-        24.67,
-        27.8,
-        27.8,
-        24.67
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6683 = structure(
-      c(
-        126.63,
-        128.4,
-        128.4,
-        126.63,
-        126.63,
-        26.02,
-        26.02,
-        26.91,
-        26.91,
-        26.02
-      ),
-      .Dim = c(5L,
-               2L)
-    ),
-    epsg_6684 = structure(
-      c(
-        122.83,
-        125.51,
-        125.51,
-        122.83,
-        122.83,
-        23.98,
-        23.98,
-        24.94,
-        24.94,
-        23.98
-      ),
-      .Dim = c(5L,
-               2L)
-    ),
-    epsg_6685 = structure(
-      c(
-        131.12,
-        131.38,
-        131.38,
-        131.12,
-        131.12,
-        24.4,
-        24.4,
-        26.01,
-        26.01,
-        24.4
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6686 = structure(
-      c(
-        136.02,
-        136.16,
-        136.16,
-        136.02,
-        136.02,
-        20.37,
-        20.37,
-        20.48,
-        20.48,
-        20.37
-      ),
-      .Dim = c(5L, 2L)
-    ),
-    epsg_6687 = structure(
-      c(
-        153.91,
-        154.05,
-        154.05,
-        153.91,
-        153.91,
-        24.22,
-        24.22,
-        24.35,
-        24.35,
-        24.22
-      ),
-      .Dim = c(5L, 2L)
-    )
-  )
-
-jgd2011_bbox <-
-  jgd2011_bbox %>%
-  purrr::map(~ list(.x) %>%
-               sf::st_polygon() %>%
-               sf::st_sfc(crs = 4326)) %>%
-  purrr::reduce(c) %>%
-  sf::st_sf() %>%
+  ls(pattern = "^v[0-9]{2}$") %>%
+  purrr::map(get) %>%
+  purrr::reduce(rbind) %>%
   tibble::new_tibble(nrow = nrow(.), class = "sf") %>%
-  tibble::add_column(system = as.roman(seq_len(19)),
-                     .before = "geometry") %>%
   tibble::add_column(epsg = epsg_codes,
                      .before = "geometry") %>%
   purrr::modify_at(c(1, 2),

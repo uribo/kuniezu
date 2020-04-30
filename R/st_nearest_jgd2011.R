@@ -4,7 +4,7 @@
 #' are replaced with those of the Japan Plane Rectangular CS.
 #' @param geometry geometry (POINT)
 #' @examples
-#' library(sf)
+#' require("sf")
 #' st_nearest_jgd2011(st_sfc(sf::st_point(c(140.778, 36.8)), crs = 4326))
 #' @seealso [https://www.gsi.go.jp/LAW/heimencho.html](https://www.gsi.go.jp/LAW/heimencho.html)
 #' @export

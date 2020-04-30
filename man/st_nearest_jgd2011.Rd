@@ -14,7 +14,7 @@ Returns the value when the coordinates of ESPG:4326 given to the input
 are replaced with those of the Japan Plane Rectangular CS.
 }
 \examples{
-library(sf)
+require("sf")
 st_nearest_jgd2011(st_sfc(sf::st_point(c(140.778, 36.8)), crs = 4326))
 }
 \seealso{
