@@ -33,6 +33,7 @@ remotes::install_github("uribo/kuniezu")
 ``` r
 library(kuniezu)
 library(sf)
+library(ggplot2)
 ```
 
 **度分秒で表記される緯度経度のパース**
@@ -69,3 +70,17 @@ st_detect_jgd2011(sf::st_sfc(sf::st_point(c(140.112, 36.083)),
                                      crs = 4326))
 #> [1] 6677
 ```
+
+**南西諸島・小笠原諸島の位置を変更した地図の描画**
+
+日本の地理空間データ（都道府県または市町村のレベルで分割されたジオメトリ）に対して適用します。
+
+``` r
+move_jpn_rs(jgd2011_bbox) %>%
+  st_union() %>% 
+  ggplot() +
+  geom_sf() +
+  geom_jpsegment()
+```
+
+![](man/figures/README-move_jpsegment-1.png)
