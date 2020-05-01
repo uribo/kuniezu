@@ -26,7 +26,7 @@ jobs:
         run: |
           install.packages(c("remotes"))
           remotes::install_deps(dependencies = TRUE)
-          remotes::install_cran("covr")
+          remotes::install_cran(c("rcmdcheck", "covr"))
         shell: Rscript {0}
 
       - name: Check
