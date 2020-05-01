@@ -17,6 +17,8 @@ BugReports: https://github.com/uribo/kuniezu/issues
 Depends:
     R (>= 3.3.0)
 Imports: 
+    dplyr (>= 0.8.5),
+    magrittr (>= 1.5),
     parzer (>= 0.1.4),
     purrr (>= 0.3.3),
     sf (>= 0.9.1),

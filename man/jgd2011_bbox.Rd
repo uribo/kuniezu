@@ -22,6 +22,7 @@ jgd2011_bbox
 Japanese Geodetic Datum 2011
 }
 \examples{
+require("sf")
 jgd2011_bbox
 }
 \references{

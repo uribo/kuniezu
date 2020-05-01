@@ -13,5 +13,6 @@ globalVariables("jgd2011_bbox")
 #' Created by processing Global Map Japan.
 #' @return [sf][sf::st_sf]
 #' @examples
+#' require("sf")
 #' jgd2011_bbox
 "jgd2011_bbox"
