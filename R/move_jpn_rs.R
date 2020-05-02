@@ -2,7 +2,7 @@
 #' @description Move geometry differently from the real-life arrangement for mapping.
 #' When displaying a map showing Japan, the southern islands are sometimes moved.
 #' To achieve this, we need to perform false operations on the geometry.
-#' @param data [sf](sf::st_sf) that records the prefecture or municipality of Japan
+#' @param data [sf][sf::st_sf] that records the prefecture or municipality of Japan
 #' @param clip An option to hide isolated island that are separated from other geometry and have a small area.
 #' @examples
 #' require("sf")

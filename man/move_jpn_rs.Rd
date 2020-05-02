@@ -7,7 +7,7 @@
 move_jpn_rs(data, clip = TRUE)
 }
 \arguments{
-\item{data}{\href{sf::st_sf}{sf} that records the prefecture or municipality of Japan}
+\item{data}{\link[sf:st_sf]{sf} that records the prefecture or municipality of Japan}
 
 \item{clip}{An option to hide isolated island that are separated from other geometry and have a small area.}
 }
