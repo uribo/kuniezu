@@ -1,0 +1,38 @@
+url: https://uribo.github.io/kuniezu
+
+authors:
+  Shinya Uryu:
+    href: https://suryu.me
+
+templates:
+  params:
+    bootswatch: paper
+
+navbar:
+  type: default
+  left:
+  - icon: fa-home fa-lg
+    href: index.html
+  - text: Reference
+    href: reference/index.html
+  - text: News
+    href: news/index.html
+
+reference:
+  - title: "Identify the Japan plane rectangular CS"
+    contents:
+    - st_detect_jgd2011
+    - st_nearest_jgd2011
+  - title: "Parse longitude and latitude values in DMS"
+    contents:
+    - parse_lon_dohunbyo
+    - parse_lat_dohunbyo
+    - replace_dohunbyo_kanji
+  - title: "Clip and move some geometries for mapping"
+    contents:
+    - geom_jpsegment
+    - move_jpn_rs
+  - title: "Datasets"
+    contents:
+    - extreme_points
+    - jgd2011_bbox

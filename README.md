@@ -5,6 +5,8 @@
 
 *国絵図 (kuniezu)*
 
+**(Sorry, English version of README is not availavle for now.)**
+
 <!-- badges: start -->
 
 [![Lifecycle:
