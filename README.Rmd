@@ -88,3 +88,10 @@ move_jpn_rs(jgd2011_bbox) %>%
 ```
 
 ![](man/figures/README-move_jpsegment-1.png)
+
+### データセット
+
+日本の国土に関するデータを用意しています。
+
+- **`extreme_points`**: 離島を含めた日本の国土の端の座標
+- **`jgd2011_bbox`**: 日本測地系2011平面直角座標の区域 ... [国土地理院](https://www.gsi.go.jp/top.html) [地球地図日本](https://www.gsi.go.jp/kankyochiri/gm_jpn.html)のデータを元に瓜生真也が加工。
