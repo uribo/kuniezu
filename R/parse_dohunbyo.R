@@ -30,11 +30,15 @@ parse_lat_dohunbyo <- function(latitude) {
 #' @rdname replace_dohunbyo_kanji
 #' @export
 replace_dohunbyo_kanji <- function(x) {
-  chartr(stringr::str_replace_all(x,
-                                  c("\u6771\u7d4c" = "E",
-                                    "\u897f\u7d4c"= "W",
-                                    "\u5317\u7def" = "N",
-                                    "\u5357\u7def" = "S")),
-         old = "\u5ea6\u5206\u79d2",
-         new = "\u00b0\u2019.")
+  chartr(
+    chartr(stringr::str_replace_all(x,
+                                    c("\u6771\u7d4c" = "E",
+                                      "\u897f\u7d4c"= "W",
+                                      "\u5317\u7def" = "N",
+                                      "\u5357\u7def" = "S")),
+           old = "\u5ea6\u5206\u79d2",
+           new = "\u00b0\u2019."),
+    old = "\u00b0\u2032\u2033",
+    new = "\u00b0\u2019."
+  )
 }
