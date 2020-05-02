@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://uribo.github.io/kuniezu/index.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/kuniezu/reference/extreme_points.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/kuniezu/reference/geom_jpsegment.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/kuniezu/reference/jgd2011_bbox.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/kuniezu/reference/move_jpn_rs.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/kuniezu/reference/parse_dohunbyo.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/kuniezu/reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/kuniezu/reference/replace_dohunbyo_kanji.html</loc>
+  </url>
+  <url>
+    <loc>https://uribo.github.io/kuniezu/reference/st_nearest_jgd2011.html</loc>
+  </url>
+</urlset>
