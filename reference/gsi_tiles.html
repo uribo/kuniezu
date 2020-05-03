@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • kuniezu</title>
+<title>Add a tile layer from GSI — gsi_tiles • kuniezu</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Add a tile layer from GSI — gsi_tiles" />
+<meta property="og:description" content="Add a tile layer from Geospatial Information Authority of Japan (GSI)." />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -108,129 +109,57 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Add a tile layer from GSI</h1>
+    <small class="dont-index">Source: <a href='https://github.com/uribo/kuniezu/blob/master/R/data-utils.R'><code>R/data-utils.R</code></a></small>
+    <div class="hidden name"><code>gsi_tiles.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Add a tile layer from Geospatial Information Authority of Japan (GSI).</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='no'>gsi_tiles</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-identify-the-japan-plane-rectangular-cs" class="hasAnchor"><a href="#section-identify-the-japan-plane-rectangular-cs" class="anchor"></a>Identify the Japan plane rectangular CS</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="st_nearest_jgd2011.html">st_nearest_jgd2011()</a></code> <code><a href="st_nearest_jgd2011.html">st_detect_jgd2011()</a></code> </p>
-        </td>
-        <td><p>Identify the Japan plane rectangular CS</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-parse-longitude-and-latitude-values-in-dms" class="hasAnchor"><a href="#section-parse-longitude-and-latitude-values-in-dms" class="anchor"></a>Parse longitude and latitude values in DMS</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="parse_dohunbyo.html">parse_lon_dohunbyo()</a></code> <code><a href="parse_dohunbyo.html">parse_lat_dohunbyo()</a></code> </p>
-        </td>
-        <td><p>Parse longitude and latitude values in DMS</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="replace_dohunbyo_kanji.html">replace_dohunbyo_kanji()</a></code> </p>
-        </td>
-        <td><p>Replace Kanji in degrees, minutes, and seconds with symbols</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-clip-and-move-some-geometries-for-mapping" class="hasAnchor"><a href="#section-clip-and-move-some-geometries-for-mapping" class="anchor"></a>Clip and move some geometries for mapping</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="geom_jpsegment.html">geom_jpsegment()</a></code> </p>
-        </td>
-        <td><p>Drawing a segment line segment that shows the boundary</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="move_jpn_rs.html">move_jpn_rs()</a></code> </p>
-        </td>
-        <td><p>Clip and move some geometries for mapping</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-datasets" class="hasAnchor"><a href="#section-datasets" class="anchor"></a>Datasets</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="extreme_points.html">extreme_points</a></code> </p>
-        </td>
-        <td><p>The extreme points of Japan</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="gsi_tiles.html">gsi_tiles</a></code> </p>
-        </td>
-        <td><p>Add a tile layer from GSI</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="jp47prefectural_offices.html">jp47prefectural_offices</a></code> </p>
-        </td>
-        <td><p>Japan Prefectural Goverment Offices</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="jgd2011_bbox.html">jgd2011_bbox</a></code> </p>
-        </td>
-        <td><p>JGD2011 / Japan Plane Rectangular CS</p></td>
-      </tr>
-    </tbody>
-    </table>
+
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>A 48 length, <a href='https://rdrr.io/pkg/leaflet/man/leaflet.html'>leaflet</a> objects.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Stores map tiles that can be used with leaflets.
+Please follow the terms and conditions of use for the applicable tile at
+<a href='http://maps.gsi.go.jp/development/ichiran.html'>http://maps.gsi.go.jp/development/ichiran.html</a>
+when using it.
+It contains tiles that can be used as base maps for interactive maps based on leaflet.
+See example section its use in leaflet. To use a mapview,
+a tile name is given to <code>mapview::mapview(map = )</code>.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span>(<span class='no'>gsi_tiles</span>)</div><div class='output co'>#&gt;  [1] "standard"             "pale"                 "english"             
+#&gt;  [4] "lcm25k_2012"          "lcm25k"               "ccm1"                
+#&gt;  [7] "ccm2"                 "vbm"                  "vbmd_bm"             
+#&gt; [10] "vbmd_colorrel"        "vbmd_pm"              "vlcd"                
+#&gt; [13] "lum200k"              "lake1"                "lakedata"            
+#&gt; [16] "blank"                "seamlessphoto"        "ortho"               
+#&gt; [19] "airphoto"             "gazo4"                "gazo3"               
+#&gt; [22] "gazo2"                "gazo1"                "ort_old10"           
+#&gt; [25] "ort_USA10"            "ort_riku10"           "relief"              
+#&gt; [28] "anaglyphmap_color"    "anaglyphmap_gray"     "hillshademap"        
+#&gt; [31] "earthhillshade"       "slopemap"             "slopezone1map"       
+#&gt; [34] "afm"                  "lcmfc2"               "lcmfc1"              
+#&gt; [37] "swale"                "cp"                   "jikizu2015_chijiki_d"
+#&gt; [40] "jikizu2015_chijiki_i" "jikizu2015_chijiki_f" "jikizu2015_chijiki_h"
+#&gt; [43] "jikizu2015_chijiki_z" "jikizu_chijikid"      "jikizu_chijikii"     
+#&gt; [46] "jikizu_chijikif"      "jikizu_chijikih"      "jikizu_chijikiz"     </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='st'>"leaflet"</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: leaflet</span></div><div class='input'><span class='no'>gsi_tiles</span><span class='kw'>[[</span><span class='fl'>1</span>]]
+
+<span class='no'>gsi_tiles</span><span class='kw'>[[</span><span class='fl'>1</span>]] <span class='kw'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/leaflet/man/map-layers.html'>addCircles</a></span>(
+    <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw pkg'>sf</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/sf/man/st_transform.html'>st_transform</a></span>(<span class='no'>extreme_points</span> <span class='kw'>%&gt;%</span>
+      <span class='kw pkg'>purrr</span><span class='kw ns'>::</span><span class='fu'><a href='https://purrr.tidyverse.org/reference/reduce.html'>reduce</a></span>(<span class='no'>c</span>),
+      <span class='kw'>crs</span> <span class='kw'>=</span> <span class='fl'>4326</span>))</div></pre>
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
