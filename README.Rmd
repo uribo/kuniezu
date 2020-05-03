@@ -43,6 +43,7 @@ remotes::install_github("uribo/kuniezu")
 library(kuniezu)
 library(sf)
 library(ggplot2)
+library(leaflet)
 ```
 
 **度分秒で表記される緯度経度のパース**
@@ -90,6 +91,27 @@ move_jpn_rs(jgd2011_bbox) %>%
 ```
 
 ![](man/figures/README-move_jpsegment-1.png)
+
+**国土地理院提供 地理院タイルの利用**
+
+[`{leaflet}`](https://cran.r-project.org/web/packages/leaflet/index.html)をベースにしたインタラクティブな地図の背景として利用可能な地理院タイルを簡単に導入できます。
+
+利用の際には [地理院タイル一覧](http://maps.gsi.go.jp/development/ichiran.html) のページを読み、利用するタイルの利用条件ならびに[国土地理院コンテンツ利用規約](https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html)に従ってください。
+
+```r
+gsi_tiles$standard
+
+sf_extreme_points <- 
+  sf::st_transform(extreme_points %>%
+       purrr::reduce(c),
+       crs = 4326)
+
+gsi_tiles[[1]] %>%
+   addCircles(
+     data = sf_extreme_points)
+
+mapview::mapview(sf_extreme_points, map = gsi_tiles$pale)
+```
 
 ### データセット
 

@@ -20,6 +20,7 @@ Depends:
 Imports: 
     dplyr (>= 0.8.5),
     ggplot2 (>= 3.3.0),
+    leaflet (>= 2.0.3),
     magrittr (>= 1.5),
     parzer (>= 0.1.4),
     purrr (>= 0.3.3),
