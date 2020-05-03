@@ -245,7 +245,7 @@ jgd2011_bbox <-
   ls(pattern = "^v[0-9]{2}$") %>%
   purrr::map(get) %>%
   purrr::reduce(rbind) %>%
-  tibble::new_tibble(nrow = nrow(.), class = "sf") %>%
+  # tibble::new_tibble(nrow = nrow(.), class = "sf") %>%
   tibble::add_column(epsg = epsg_codes,
                      .before = "geometry") %>%
   purrr::modify_at(c(1, 2),
