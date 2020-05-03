@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • kuniezu</title>
+<title>Japan Prefectural Goverment Offices — jp47prefectural_offices • kuniezu</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,8 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Japan Prefectural Goverment Offices — jp47prefectural_offices" />
+<meta property="og:description" content="Locations of 47 government offices in Japan's prefectures." />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -108,123 +109,51 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Japan Prefectural Goverment Offices</h1>
+    <small class="dont-index">Source: <a href='https://github.com/uribo/kuniezu/blob/master/R/data-utils.R'><code>R/data-utils.R</code></a></small>
+    <div class="hidden name"><code>jp47prefectural_offices.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Locations of 47 government offices in Japan's prefectures.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='no'>jp47prefectural_offices</span></pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-identify-the-japan-plane-rectangular-cs" class="hasAnchor"><a href="#section-identify-the-japan-plane-rectangular-cs" class="anchor"></a>Identify the Japan plane rectangular CS</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="st_nearest_jgd2011.html">st_nearest_jgd2011()</a></code> <code><a href="st_nearest_jgd2011.html">st_detect_jgd2011()</a></code> </p>
-        </td>
-        <td><p>Identify the Japan plane rectangular CS</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-parse-longitude-and-latitude-values-in-dms" class="hasAnchor"><a href="#section-parse-longitude-and-latitude-values-in-dms" class="anchor"></a>Parse longitude and latitude values in DMS</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="parse_dohunbyo.html">parse_lon_dohunbyo()</a></code> <code><a href="parse_dohunbyo.html">parse_lat_dohunbyo()</a></code> </p>
-        </td>
-        <td><p>Parse longitude and latitude values in DMS</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="replace_dohunbyo_kanji.html">replace_dohunbyo_kanji()</a></code> </p>
-        </td>
-        <td><p>Replace Kanji in degrees, minutes, and seconds with symbols</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-clip-and-move-some-geometries-for-mapping" class="hasAnchor"><a href="#section-clip-and-move-some-geometries-for-mapping" class="anchor"></a>Clip and move some geometries for mapping</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="geom_jpsegment.html">geom_jpsegment()</a></code> </p>
-        </td>
-        <td><p>Drawing a segment line segment that shows the boundary</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="move_jpn_rs.html">move_jpn_rs()</a></code> </p>
-        </td>
-        <td><p>Clip and move some geometries for mapping</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-datasets" class="hasAnchor"><a href="#section-datasets" class="anchor"></a>Datasets</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="extreme_points.html">extreme_points</a></code> </p>
-        </td>
-        <td><p>The extreme points of Japan</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="jp47prefectural_offices.html">jp47prefectural_offices</a></code> </p>
-        </td>
-        <td><p>Japan Prefectural Goverment Offices</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="jgd2011_bbox.html">jgd2011_bbox</a></code> </p>
-        </td>
-        <td><p>JGD2011 / Japan Plane Rectangular CS</p></td>
-      </tr>
-    </tbody>
-    </table>
+
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>A <a href='https://rdrr.io/pkg/sf/man/sf.html'>sf</a> contains 2 column and 47 rows.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The original file was downloaded from
+<a href='https://www.gsi.go.jp/KOKUJYOHO/center.htm'>https://www.gsi.go.jp/KOKUJYOHO/center.htm</a>,
+which parses the PDF data and organizes the coordinates of the prefectural hall.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='st'>"sf"</span>)
+<span class='no'>jp47prefectural_offices</span></div><div class='output co'>#&gt; Simple feature collection with 47 features and 1 field
+#&gt; geometry type:  POINT
+#&gt; dimension:      XY
+#&gt; bbox:           xmin: 127.6811 ymin: 26.2125 xmax: 141.3469 ymax: 43.06417
+#&gt; CRS:            EPSG:4326
+#&gt; <span style='color: #555555;'># A tibble: 47 x 2</span><span>
+#&gt;    office              geometry
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;POINT [°]&gt;</span><span>
+#&gt; </span><span style='color: #555555;'> 1</span><span> 北海道庁 (141.3469 43.06417)
+#&gt; </span><span style='color: #555555;'> 2</span><span> 青森県庁   (140.74 40.82444)
+#&gt; </span><span style='color: #555555;'> 3</span><span> 岩手県庁 (141.1525 39.70361)
+#&gt; </span><span style='color: #555555;'> 4</span><span> 宮城県庁 (140.8719 38.26889)
+#&gt; </span><span style='color: #555555;'> 5</span><span> 秋田県庁 (140.1025 39.71861)
+#&gt; </span><span style='color: #555555;'> 6</span><span> 山形県庁 (140.3633 38.24055)
+#&gt; </span><span style='color: #555555;'> 7</span><span> 福島県庁    (140.4678 37.75)
+#&gt; </span><span style='color: #555555;'> 8</span><span> 茨城県庁 (140.4467 36.34139)
+#&gt; </span><span style='color: #555555;'> 9</span><span> 栃木県庁 (139.8836 36.56583)
+#&gt; </span><span style='color: #555555;'>10</span><span> 群馬県庁 (139.0608 36.39111)
+#&gt; </span><span style='color: #555555;'># … with 37 more rows</span><span></div></span></pre>
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
