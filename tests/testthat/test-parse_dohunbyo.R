@@ -1,3 +1,16 @@
+test_that("Check input value", {
+  expect_equal(
+    length(news_kanji),
+    4L
+  )
+  expect_true(
+    is_dohunbyo_kanji("東経139度44分28秒8869")
+  )
+  expect_false(
+    is_dohunbyo_kanji("とうけい139度44分28秒8869")
+  )
+})
+
 test_that("replace works", {
   expect_equal(
     replace_dohunbyo_kanji("東経139度44分28秒8869"),

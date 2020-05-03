@@ -30,15 +30,30 @@ parse_lat_dohunbyo <- function(latitude) {
 #' @rdname replace_dohunbyo_kanji
 #' @export
 replace_dohunbyo_kanji <- function(x) {
+  if (!is_dohunbyo_kanji(x))
+    stop("The string given to x must be a kanji notation of longitude or latitude.")
   chartr(
-    chartr(stringr::str_replace_all(x,
-                                    c("\u6771\u7d4c" = "E",
-                                      "\u897f\u7d4c"= "W",
-                                      "\u5317\u7def" = "N",
-                                      "\u5357\u7def" = "S")),
-           old = "\u5ea6\u5206\u79d2",
-           new = "\u00b0\u2019."),
-    old = "\u00b0\u2032\u2033",
-    new = "\u00b0\u2019."
+    chartr(
+      stringr::str_remove_all(
+        chartr(x,
+               old = intToUtf8(c(26481, 35199, 21335, 21271)),
+               new = c("EWSN")),
+        pattern = paste0(intToUtf8(c(32239, 32076), multiple = TRUE), collapse = "|")),
+           old = intToUtf8(c(24230, 20998, 31186)),
+           new = intToUtf8(c(176, 8217, 46))),
+    old = intToUtf8(c(176, 8242, 8243)),
+    new = intToUtf8(c(176, 8217, 46))
   )
+}
+
+news_kanji <-
+  list(N = intToUtf8(c(21271, 32239)),
+       E = intToUtf8(c(26481, 32076)),
+       W = intToUtf8(c(35199, 32076)),
+       S = intToUtf8(c(21335, 32239)))
+
+is_dohunbyo_kanji <- function(x) {
+  stringr::str_detect(x, paste0("^(",
+                                paste0(news_kanji, collapse = "|"),
+                                ")"))
 }
