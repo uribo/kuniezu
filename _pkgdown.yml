@@ -35,4 +35,5 @@ reference:
   - title: "Datasets"
     contents:
     - extreme_points
+    - jp47prefectural_offices
     - jgd2011_bbox

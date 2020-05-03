@@ -6,3 +6,5 @@
 .env
 docs/
 data-raw/gm-jpn-all_u_2_2/
+*.xlsx
+*.pdf

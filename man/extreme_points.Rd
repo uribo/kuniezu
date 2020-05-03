@@ -22,7 +22,7 @@ extreme_points$east
 
 require("purrr")
 extreme_points \%>\%
-reduce(c)
+  reduce(c)
 }
 \seealso{
 \url{https://www.gsi.go.jp/KOKUJYOHO/center.htm}
