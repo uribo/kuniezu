@@ -7,6 +7,7 @@
 #' @examples
 #' require("sf")
 #' move_jpn_rs(jgd2011_bbox)
+#' @return [sf][sf::st_sf]. Geometry in Tokyo may have rows duplicated in Honshu and islands.
 #' @export
 move_jpn_rs <- function(data, clip = TRUE) {
   .row_num <- geometry <- NULL

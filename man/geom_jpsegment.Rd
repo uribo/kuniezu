@@ -11,6 +11,9 @@ geom_jpsegment(...)
 \arguments{
 \item{...}{other arguments passed on to \link[ggplot2:geom_segment]{geom_segment}.}
 }
+\value{
+ggplot object and plot
+}
 \description{
 Drawing a segment line segment that shows the boundary
 }

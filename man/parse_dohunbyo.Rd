@@ -14,6 +14,9 @@ parse_lat_dohunbyo(latitude)
 
 \item{latitude}{latitude values}
 }
+\value{
+\emph{numeric} vector
+}
 \description{
 Parse longitude and latitude values in DMS
 }

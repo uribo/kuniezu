@@ -9,4 +9,8 @@
 
 * This is a new release.
 * Note: found 95 marked UTF-8 strings
-* Fix all warnings that `unable to translate ... to native encoding`.
+
+## Resubmission
+
+- Fix \value to .Rd files regarding exported methods and explain the functions.
+- Add copyright folder to Authors@R in the DESCRIPTION files.

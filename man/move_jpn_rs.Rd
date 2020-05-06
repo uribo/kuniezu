@@ -11,6 +11,9 @@ move_jpn_rs(data, clip = TRUE)
 
 \item{clip}{An option to hide isolated island that are separated from other geometry and have a small area.}
 }
+\value{
+\link[sf:st_sf]{sf}. Geometry in Tokyo may have rows duplicated in Honshu and islands.
+}
 \description{
 Move geometry differently from the real-life arrangement for mapping.
 When displaying a map showing Japan, the southern islands are sometimes moved.

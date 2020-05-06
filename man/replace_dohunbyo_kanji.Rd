@@ -9,6 +9,9 @@ replace_dohunbyo_kanji(x)
 \arguments{
 \item{x}{character}
 }
+\value{
+\emph{character} vector
+}
 \description{
 Replace Kanji in degrees, minutes, and seconds with symbols
 }

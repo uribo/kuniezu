@@ -12,6 +12,9 @@ st_detect_jgd2011(geometry)
 \arguments{
 \item{geometry}{geometry (POINT, EPSG:4326)}
 }
+\value{
+\emph{numeric} vector
+}
 \description{
 Returns the value when the coordinates of ESPG:4326 given to the input
 are replaced with those of the Japan Plane Rectangular CS.

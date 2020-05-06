@@ -33,6 +33,7 @@ GeomJpSegment <- ggplot2::ggproto("GeomJpSegment", ggplot2::Geom,
 #'   geom_sf() +
 #'   geom_jpsegment()
 #' @seealso [move_jpn_rs][move_jpn_rs]
+#' @return ggplot object and plot
 #' @export
 geom_jpsegment <- function(...) {
   layer(

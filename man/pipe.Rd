@@ -6,6 +6,14 @@
 \usage{
 lhs \%>\% rhs
 }
+\arguments{
+\item{lhs}{An object which serves both as the initial value and as target.}
+
+\item{rhs}{a function call using the magrittr semantics.}
+}
+\value{
+Follow applied function.
+}
 \description{
 See \code{magrittr::\link[magrittr:pipe]{\%>\%}} for details.
 }

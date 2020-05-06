@@ -17,6 +17,7 @@
 #'
 #' st_detect_jgd2011(p)
 #' st_detect_jgd2011(st_sfc(sf::st_point(c(140.73, 36.8)), crs = 4326))
+#' @return *numeric* vector
 #' @seealso [https://www.gsi.go.jp/LAW/heimencho.html](https://www.gsi.go.jp/LAW/heimencho.html)
 #' @export
 st_nearest_jgd2011 <- function(geometry) {

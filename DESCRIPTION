@@ -2,12 +2,15 @@ Type: Package
 Package: kuniezu
 Title: Assistance on the National Geography of Japan
 Version: 0.1.0
-Authors@R: 
+Authors@R: c(
     person(given = "Shinya",
            family = "Uryu",
            role = c("aut", "cre"),
            email = "suika1127@gmail.com",
-           comment = c(ORCID = "0000-0002-0493-6186"))
+           comment = c(ORCID = "0000-0002-0493-6186")),
+    person(given = "Geospatial Information Authority of Japan",
+           comment = "Author of Global Map Japan Data",
+           role = c("cph")))
 Maintainer: Shinya Uryu <suika1127@gmail.com>
 Description: Data set on Japan's national geography. 
     Provides tools for efficient processing and visualization of 

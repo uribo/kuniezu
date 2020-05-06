@@ -7,6 +7,7 @@
 #' parse_lon_dohunbyo(x)
 #' y <- "\u5317\u7def35\u5ea639\u520629\u79d21572"
 #' parse_lat_dohunbyo(y)
+#' @return *numeric* vector
 #' @rdname parse_dohunbyo
 #' @export
 parse_lon_dohunbyo <- function(longitude) {
@@ -27,6 +28,7 @@ parse_lat_dohunbyo <- function(latitude) {
 #' replace_dohunbyo_kanji(x)
 #' y <- "\u5317\u7def35\u5ea639\u520629\u79d21572"
 #' replace_dohunbyo_kanji(y)
+#' @return *character* vector
 #' @rdname replace_dohunbyo_kanji
 #' @export
 replace_dohunbyo_kanji <- function(x) {
