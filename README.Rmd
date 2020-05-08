@@ -30,7 +30,13 @@ knitr::opts_chunk$set(
 
 ## インストール
 
-GitHubより行ってください。remotesパッケージをインストールしたのち、`remotes::install_github()`でパッケージのインストールを行います。
+CRANまたはGitHubからインストールします。通常は以下のコマンド実行によりCRAN版を導入してください。
+
+```r
+install.packages("kuniezu")
+```
+
+開発版を導入したい方はremotesパッケージをインストールしたのち、`remotes::install_github()`でパッケージのインストールを行います。
 
 ``` r
 install.packages("remotes")

@@ -23,7 +23,13 @@ coverage](https://codecov.io/gh/uribo/kuniezu/branch/master/graph/badge.svg)](ht
 
 ## インストール
 
-GitHubより行ってください。remotesパッケージをインストールしたのち、`remotes::install_github()`でパッケージのインストールを行います。
+CRANまたはGitHubからインストールします。通常は以下のコマンド実行によりCRAN版を導入してください。
+
+``` r
+install.packages("kuniezu")
+```
+
+開発版を導入したい方はremotesパッケージをインストールしたのち、`remotes::install_github()`でパッケージのインストールを行います。
 
 ``` r
 install.packages("remotes")
@@ -88,8 +94,7 @@ move_jpn_rs(jgd2011_bbox) %>%
 
 ![](man/figures/README-move_jpsegment-1.png)
 
-**国土地理院提供
-地理院タイルの利用**
+**国土地理院提供 地理院タイルの利用**
 
 [`{leaflet}`](https://CRAN.R-project.org/package=leaflet)をベースにしたインタラクティブな地図の背景として利用可能な地理院タイルを簡単に導入できます。
 
