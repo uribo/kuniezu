@@ -17,38 +17,38 @@ gsi_office_extract_page <- function(data) {
     stringr::str_squish() %>%
     stringr::str_split("[[:space:]]", simplify = TRUE) %>%
     as.data.frame(stringsAsFactors = FALSE) %>%
-    mutate(id = dplyr::row_number()) %>%
-    select(id, everything())
+    dplyr::mutate(id = dplyr::row_number()) %>%
+    dplyr::select(id, tidyselect::everything())
   d4 <-
     seq.int(1, nrow(d3), by = 3) %>%
     purrr::map_dfr(
       ~ tibble::add_column(d3[.x, ], aa = NA_character_, .after = 2) %>%
-        select(-V6)) %>%
+        dplyr::select(-V6)) %>%
     purrr::set_names(c("id",
                        paste0("V", seq_len(6))))
 
   d3 %>%
-    filter(!id %in% d4$id) %>%
-    mutate(V1 = NA_character_) %>%
-    bind_rows(d4) %>%
-    arrange(id) %>%
+    dplyr::filter(!id %in% d4$id) %>%
+    dplyr::mutate(V1 = NA_character_) %>%
+    dplyr::bind_rows(d4) %>%
+    dplyr::arrange(id) %>%
     tidyr::fill(V1, .direction = "down") %>%
-    filter(!is.na(V2)) %>%
-    select(-1) %>%
+    dplyr::filter(!is.na(V2)) %>%
+    dplyr::select(-1) %>%
     purrr::set_names(c("office", "coords", "e", "w", "n", "s")) %>%
-    mutate(type = rep(c("longitude", "latitude"), nrow(.)/2)) %>%
+    dplyr::mutate(type = rep(c("longitude", "latitude"), nrow(.)/2)) %>%
     tidyr::pivot_longer(cols = 2:6,
                         names_to = "var",
                         values_to = "value") %>%
     tidyr::pivot_wider(names_from = type,
                        values_from = value) %>%
-    mutate_at(vars(longitude, latitude),
+    dplyr::mutate_at(dplyr::vars(longitude, latitude),
               fix_coord_symbol) %>%
-    mutate(longitude = parzer::parse_lon(longitude),
-           latitude = parzer::parse_lat(latitude)) %>%
-    st_as_sf(coords = c("longitude", "latitude"), crs = 4326) %>%
-    filter(var == "coords") %>%
-    select(-var)
+    dplyr::mutate(longitude = parzer::parse_lon(longitude),
+                  latitude = parzer::parse_lat(latitude)) %>%
+    sf::st_as_sf(coords = c("longitude", "latitude"), crs = 4326) %>%
+    dplyr::filter(var == "coords") %>%
+    dplyr::select(-var)
 }
 gsi_office_extract <- function(file) {
   pdftools::pdf_text(file) %>%
