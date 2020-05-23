@@ -1,4 +1,6 @@
-# kuniezu (development version)
+# kuniezu 0.1.1
+
+* Fix import dependency relationships.
 
 # kuniezu 0.1.0
 
