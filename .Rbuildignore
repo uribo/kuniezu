@@ -13,3 +13,4 @@
 ^pkgdown$
 ^CRAN-RELEASE$
 ^cran-comments\.md$
+^revdep$

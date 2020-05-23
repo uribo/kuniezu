@@ -9,7 +9,9 @@ RUN set -x && \
   echo "GITHUB_PAT=$GITHUB_PAT" >> /usr/local/lib/R/etc/Renviron
 
 RUN set -x && \
-  install2.r --error --repos 'http://mran.revolutionanalytics.com/snapshot/2020-05-15' \
+  install2.r --error --repos 'http://mran.revolutionanalytics.com/snapshot/2020-05-22' \
     parzer \
     xml2 && \
+  installGithub.r \
+    r-lib/revdepcheck && \
   rm -rf /tmp/downloaded_packages/ /tmp/*.rds
