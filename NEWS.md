@@ -1,4 +1,4 @@
-# kuniezu (development version)
+# kuniezu 0.1.2
 
 # kuniezu 0.1.1
 
