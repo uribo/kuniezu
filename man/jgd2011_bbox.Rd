@@ -16,7 +16,7 @@ A sf (CRS EPSG:6668) with 19 rows 3 variables:
 jgd2011_bbox
 }
 \value{
-\link[sf:st_sf]{sf}
+\link[sf:sf]{sf}
 }
 \description{
 Japanese Geodetic Datum 2011

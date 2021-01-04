@@ -1,4 +1,4 @@
-FROM rocker/geospatial:4.0.0
+FROM rocker/geospatial:4.0.3@sha256:b0c88617be37cf6e8a17c46d67f768001eab80a066f6eda890dacf082a5ed1ee
 
 RUN set -x && \
   apt-get update
@@ -9,7 +9,7 @@ RUN set -x && \
   echo "GITHUB_PAT=$GITHUB_PAT" >> /usr/local/lib/R/etc/Renviron
 
 RUN set -x && \
-  install2.r --error --repos 'http://mran.revolutionanalytics.com/snapshot/2020-05-22' \
+  install2.r --error --ncpus -1 --repos 'https://cran.microsoft.com/snapshot/2020-12-19' \
     parzer \
     xml2 && \
   installGithub.r \

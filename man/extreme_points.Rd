@@ -5,7 +5,7 @@
 \alias{extreme_points}
 \title{The extreme points of Japan}
 \format{
-A four length list consisting of \link[sf:st_sfc]{sfc}
+A four length list consisting of \link[sf:sfc]{sfc}
 }
 \usage{
 extreme_points

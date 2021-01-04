@@ -5,7 +5,7 @@
 \alias{jp47prefectural_offices}
 \title{Japan Prefectural Goverment Offices}
 \format{
-A \link[sf:st_sf]{sf} contains 2 column and 47 rows.
+A \link[sf:sf]{sf} contains 2 column and 47 rows.
 }
 \usage{
 jp47prefectural_offices
