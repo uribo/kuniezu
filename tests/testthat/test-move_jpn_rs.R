@@ -1,4 +1,5 @@
 test_that("multiplication works", {
+  skip_on_cran()
   res <-
     move_jpn_rs(jgd2011_bbox)
   expect_equal(
