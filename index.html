@@ -21,6 +21,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -33,7 +35,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">kuniezu</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -41,7 +43,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -55,7 +57,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/uribo/kuniezu/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -77,68 +79,76 @@
 <p><em>国絵図 (kuniezu)</em></p>
 <p><strong>(Sorry, English version of README is not availavle for now.)</strong></p>
 <!-- badges: start -->
-<p><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a> <a href="https://cran.r-project.org/package=kuniezu"><img src="http://www.r-pkg.org/badges/version/kuniezu" alt="CRAN_Status_Badge"></a> <a href="https://cran.r-project.org/"><img src="https://img.shields.io/badge/R%3E%3D-3.3.0-blue.svg" alt="minimal R version"></a> <img src="https://github.com/uribo/kuniezu/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"><a href="https://codecov.io/gh/uribo/kuniezu?branch=master"><img src="https://codecov.io/gh/uribo/kuniezu/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <!-- badges: end --></p>
-<p><code>{kuniezu}</code>は日本の国土地理に関する補助関数およびデータセットを提供するRパッケージです。</p>
+<p><a href="https://www.tidyverse.org/lifecycle/#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a> <a href="https://cran.r-project.org/package=kuniezu" class="external-link"><img src="http://www.r-pkg.org/badges/version/kuniezu" alt="CRAN_Status_Badge"></a> <a href="https://cran.r-project.org/" class="external-link"><img src="https://img.shields.io/badge/R%3E%3D-3.3.0-blue.svg" alt="minimal R version"></a> <img src="https://github.com/uribo/kuniezu/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"><a href="https://codecov.io/gh/uribo/kuniezu?branch=master" class="external-link"><img src="https://codecov.io/gh/uribo/kuniezu/branch/master/graph/badge.svg" alt="Codecov test coverage"></a> <!-- badges: end --></p>
+<p><a href="https://uribo.github.io/kuniezu/">kuniezu</a>は日本の国土地理に関する補助関数およびデータセットを提供するRパッケージです。</p>
 <div id="インストール" class="section level2">
 <h2 class="hasAnchor">
 <a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB" class="anchor"></a>インストール</h2>
 <p>CRANまたはGitHubからインストールします。通常は以下のコマンド実行によりCRAN版を導入してください。</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"kuniezu"</span>)</pre></div>
-<p>開発版を導入したい方はremotesパッケージをインストールしたのち、<code><a href="https://remotes.r-lib.org/reference/install_github.html">remotes::install_github()</a></code>でパッケージのインストールを行います。</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
-<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"uribo/kuniezu"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"kuniezu"</span><span class="op">)</span></code></pre></div>
+<p>開発版を導入したい方はremotesパッケージをインストールしたのち、<code><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">remotes::install_github()</a></code>でパッケージのインストールを行います。</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
+<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"uribo/kuniezu"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="使い方" class="section level2">
 <h2 class="hasAnchor">
 <a href="#%E4%BD%BF%E3%81%84%E6%96%B9" class="anchor"></a>使い方</h2>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">kuniezu</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">sf</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">ggplot2</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">leaflet</span>)</pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://uribo.github.io/kuniezu/">kuniezu</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/leaflet/" class="external-link">leaflet</a></span><span class="op">)</span></code></pre></div>
 <p><strong>度分秒で表記される緯度経度のパース</strong></p>
 <p><code>北緯35度39分29秒1572</code>、<code>東経139度44分28秒8869</code>のように度分秒を使って示される緯度経度の値を十進数の表記に変換します。</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="reference/parse_dohunbyo.html">parse_lon_dohunbyo</a></span>(<span class="st">"東経139度44分28秒8869"</span>)
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/parse_lon_dohunbyo.html">parse_lon_dohunbyo</a></span><span class="op">(</span><span class="st">"東経139度44分28秒8869"</span><span class="op">)</span>
 <span class="co">#&gt; [1] 139.7414</span>
-<span class="fu"><a href="reference/parse_dohunbyo.html">parse_lat_dohunbyo</a></span>(<span class="st">"北緯35度39分29秒1572"</span>)
-<span class="co">#&gt; [1] 35.6581</span></pre></div>
+<span class="fu"><a href="reference/parse_lon_dohunbyo.html">parse_lat_dohunbyo</a></span><span class="op">(</span><span class="st">"北緯35度39分29秒1572"</span><span class="op">)</span>
+<span class="co">#&gt; [1] 35.6581</span></code></pre></div>
 <p><strong>日本測地系2011平面直角座標での区域</strong></p>
-<div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/sf/man/plot.html">plot</a></span>(<span class="no">jgd2011_bbox</span>[<span class="st">"system"</span>])
-<span class="fu"><a href="https://rdrr.io/r/graphics/title.html">title</a></span>(<span class="st">"Created by Shinya Uryu based on Global Map Japan data v2.2"</span>,
-      <span class="kw">sub</span> <span class="kw">=</span> <span class="st">"Source: Geospatial Information Authority of Japan (https://www.gsi.go.jp/kankyochiri/gm_japan_e.html)"</span>,
-      <span class="kw">cex.main</span> <span class="kw">=</span> <span class="fl">0.5</span>,
-      <span class="kw">cex.sub</span> <span class="kw">=</span> <span class="fl">0.4</span>)</pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://r-spatial.github.io/sf/reference/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">jgd2011_bbox</span><span class="op">[</span><span class="st">"system"</span><span class="op">]</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span><span class="st">"Created by Shinya Uryu based on Global Map Japan data v2.2"</span>,
+      sub <span class="op">=</span> <span class="st">"Source: Geospatial Information Authority of Japan (https://www.gsi.go.jp/kankyochiri/gm_japan_e.html)"</span>,
+      cex.main <span class="op">=</span> <span class="fl">0.5</span>,
+      cex.sub <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-jgd2011_area-1.png"></p>
 <p>任意の座標が日本測地系2011の平面直角座標で示した際にどの区域に該当するかを判定します。</p>
-<div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="reference/st_nearest_jgd2011.html">st_nearest_jgd2011</a></span>(<span class="fu"><a href="https://rdrr.io/pkg/sf/man/sfc.html">st_sfc</a></span>(<span class="kw pkg">sf</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/sf/man/st.html">st_point</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">140.778</span>, <span class="fl">36.8</span>)),
-                          <span class="kw">crs</span> <span class="kw">=</span> <span class="fl">4326</span>))
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/st_nearest_jgd2011.html">st_nearest_jgd2011</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/sfc.html" class="external-link">st_sfc</a></span><span class="op">(</span><span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st.html" class="external-link">st_point</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">140.778</span>, <span class="fl">36.8</span><span class="op">)</span><span class="op">)</span>, 
+                          crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] 6677</span>
 
-<span class="fu"><a href="reference/st_nearest_jgd2011.html">st_detect_jgd2011</a></span>(<span class="kw pkg">sf</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/sf/man/sfc.html">st_sfc</a></span>(<span class="kw pkg">sf</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/sf/man/st.html">st_point</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">140.112</span>, <span class="fl">36.083</span>)),
-                                     <span class="kw">crs</span> <span class="kw">=</span> <span class="fl">4326</span>))
-<span class="co">#&gt; [1] 6677</span></pre></div>
+<span class="fu"><a href="reference/st_nearest_jgd2011.html">st_detect_jgd2011</a></span><span class="op">(</span><span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/sfc.html" class="external-link">st_sfc</a></span><span class="op">(</span><span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st.html" class="external-link">st_point</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">140.112</span>, <span class="fl">36.083</span><span class="op">)</span><span class="op">)</span>,
+                                     crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] 6677</span></code></pre></div>
 <p><strong>南西諸島・小笠原諸島の位置を変更した地図の描画</strong></p>
 <p>日本の地理空間データ（都道府県または市町村のレベルで分割されたジオメトリ）に対して適用します。</p>
-<div class="sourceCode" id="cb7"><pre class="r"><span class="fu"><a href="reference/move_jpn_rs.html">move_jpn_rs</a></span>(<span class="no">jgd2011_bbox</span>) <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/sf/man/geos_combine.html">st_union</a></span>() <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() +
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>() +
-  <span class="fu"><a href="reference/geom_jpsegment.html">geom_jpsegment</a></span>()</pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/move_jpn_rs.html">move_jpn_rs</a></span><span class="op">(</span><span class="va">jgd2011_bbox</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://r-spatial.github.io/sf/reference/geos_combine.html" class="external-link">st_union</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">geom_sf</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu"><a href="reference/GeomJpSegment.html">geom_jpsegment</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-move_jpsegment-1.png"></p>
 <p><strong>国土地理院提供 地理院タイルの利用</strong></p>
-<p><a href="https://CRAN.R-project.org/package=leaflet"><code>{leaflet}</code></a>をベースにしたインタラクティブな地図の背景として利用可能な地理院タイルを簡単に導入できます。</p>
-<p>利用の際には <a href="http://maps.gsi.go.jp/development/ichiran.html">地理院タイル一覧</a> のページを読み、利用するタイルの利用条件ならびに<a href="https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html">国土地理院コンテンツ利用規約</a>に従ってください。</p>
-<div class="sourceCode" id="cb8"><pre class="r"><span class="no">gsi_tiles</span>$<span class="no">standard</span>
+<p><a href="https://CRAN.R-project.org/package=leaflet" class="external-link"><code>{leaflet}</code></a>をベースにしたインタラクティブな地図の背景として利用可能な地理院タイルを簡単に導入できます。</p>
+<p>利用の際には <a href="http://maps.gsi.go.jp/development/ichiran.html" class="external-link">地理院タイル一覧</a> のページを読み、利用するタイルの利用条件ならびに<a href="https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html" class="external-link">国土地理院コンテンツ利用規約</a>に従ってください。</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gsi_tiles</span><span class="op">$</span><span class="va">standard</span>
 
-<span class="no">sf_extreme_points</span> <span class="kw">&lt;-</span>
-  <span class="kw pkg">sf</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/sf/man/st_transform.html">st_transform</a></span>(<span class="no">extreme_points</span> <span class="kw">%&gt;%</span>
-       <span class="kw pkg">purrr</span><span class="kw ns">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html">reduce</a></span>(<span class="no">c</span>),
-       <span class="kw">crs</span> <span class="kw">=</span> <span class="fl">4326</span>)
+<span class="va">sf_extreme_points</span> <span class="op">&lt;-</span> 
+  <span class="fu">sf</span><span class="fu">::</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_transform.html" class="external-link">st_transform</a></span><span class="op">(</span><span class="va">extreme_points</span> <span class="op">%&gt;%</span>
+       <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/reduce.html" class="external-link">reduce</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span>,
+       crs <span class="op">=</span> <span class="fl">4326</span><span class="op">)</span>
 
-<span class="no">gsi_tiles</span><span class="kw">[[</span><span class="fl">1</span>]] <span class="kw">%&gt;%</span>
-   <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html">addCircles</a></span>(
-     <span class="kw">data</span> <span class="kw">=</span> <span class="no">sf_extreme_points</span>)
+<span class="va">gsi_tiles</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">%&gt;%</span>
+   <span class="fu"><a href="https://rdrr.io/pkg/leaflet/man/map-layers.html" class="external-link">addCircles</a></span><span class="op">(</span>
+     data <span class="op">=</span> <span class="va">sf_extreme_points</span><span class="op">)</span>
 
-<span class="kw pkg">mapview</span><span class="kw ns">::</span><span class="fu">mapview</span>(<span class="no">sf_extreme_points</span>, <span class="kw">map</span> <span class="kw">=</span> <span class="no">gsi_tiles</span>$<span class="no">pale</span>)</pre></div>
+<span class="fu">mapview</span><span class="fu">::</span><span class="fu">mapview</span><span class="op">(</span><span class="va">sf_extreme_points</span>, map <span class="op">=</span> <span class="va">gsi_tiles</span><span class="op">$</span><span class="va">pale</span><span class="op">)</span></code></pre></div>
 <div id="データセット" class="section level3">
 <h3 class="hasAnchor">
 <a href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%82%BB%E3%83%83%E3%83%88" class="anchor"></a>データセット</h3>
@@ -147,7 +157,7 @@
 <li>
 <strong><code>extreme_points</code></strong>: 離島を含めた日本の国土の端の座標</li>
 <li>
-<strong><code>jgd2011_bbox</code></strong>: 日本測地系2011平面直角座標の区域 … <a href="https://www.gsi.go.jp/top.html">国土地理院</a> <a href="https://www.gsi.go.jp/kankyochiri/gm_jpn.html">地球地図日本</a>のデータを元に瓜生真也が加工。</li>
+<strong><code>jgd2011_bbox</code></strong>: 日本測地系2011平面直角座標の区域 … <a href="https://www.gsi.go.jp/top.html" class="external-link">国土地理院</a> <a href="https://www.gsi.go.jp/kankyochiri/gm_jpn.html" class="external-link">地球地図日本</a>のデータを元に瓜生真也が加工。</li>
 </ul>
 </div>
 </div>
@@ -156,7 +166,7 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=kuniezu">https://​cloud.r-project.org/​package=kuniezu</a>
 </li>
@@ -166,32 +176,39 @@
 </li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>
 <a href="https://suryu.me">Shinya Uryu</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-0493-6186" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html">More on authors...</a></li>
 </ul>
 </div>
+
+
 
   </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://suryu.me">Shinya Uryu</a>.</p>
+  <p></p>
+<p>Developed by <a href="https://suryu.me" class="external-link">Shinya Uryu</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p>
 </div>
 
       </footer>
@@ -199,6 +216,8 @@
 
   
 
+
+  
 
   </body>
 </html>

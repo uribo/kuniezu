@@ -47,6 +47,8 @@ The northernmost position is what the government claims." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -58,9 +60,15 @@ The northernmost position is what the government claims." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -74,7 +82,7 @@ The northernmost position is what the government claims." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">kuniezu</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.2</span>
       </span>
     </div>
 
@@ -82,7 +90,7 @@ The northernmost position is what the government claims." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -96,7 +104,7 @@ The northernmost position is what the government claims." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/uribo/kuniezu/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -124,18 +132,19 @@ Japan's territory (including remote islands).
 The northernmost position is what the government claims.</p>
     </div>
 
-    <pre class="usage"><span class='no'>extreme_points</span></pre>
+    <pre class="usage"><span class='va'>extreme_points</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A four length list consisting of <a href='https://rdrr.io/pkg/sf/man/sfc.html'>sfc</a></p>
+    <p>A four length list consisting of <a href='https://r-spatial.github.io/sf/reference/sfc.html'>sfc</a></p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><a href='https://www.gsi.go.jp/KOKUJYOHO/center.htm'>https://www.gsi.go.jp/KOKUJYOHO/center.htm</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>extreme_points</span></div><div class='output co'>#&gt; $north
+    <pre class="examples"><div class='input'><span class='va'>extreme_points</span>
+</div><div class='output co'>#&gt; $north
 #&gt; [[1]]
 #&gt; [1] 148.75223  45.55722
 #&gt; attr(,"class")
@@ -243,7 +252,8 @@ The northernmost position is what the government claims.</p>
 #&gt; attr(,"class")
 #&gt; [1] "bbox"
 #&gt; </div><div class='input'>
-<span class='no'>extreme_points</span>$<span class='no'>east</span></div><div class='output co'>#&gt; [[1]]
+<span class='va'>extreme_points</span><span class='op'>$</span><span class='va'>east</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] 153.98666  24.28306
 #&gt; attr(,"class")
 #&gt; [1] "XY"    "POINT" "sfg"  
@@ -268,8 +278,10 @@ The northernmost position is what the government claims.</p>
 #&gt; 153.98666  24.28306 153.98666  24.28306 
 #&gt; attr(,"class")
 #&gt; [1] "bbox"</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>require</a></span>(<span class='st'>"purrr"</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: purrr</span></div><div class='input'><span class='no'>extreme_points</span> <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://purrr.tidyverse.org/reference/reduce.html'>reduce</a></span>(<span class='no'>c</span>)</div><div class='output co'>#&gt; [[1]]
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='st'><a href='http://purrr.tidyverse.org'>"purrr"</a></span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'>Loading required package: purrr</span></div><div class='input'><span class='va'>extreme_points</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://purrr.tidyverse.org/reference/reduce.html'>reduce</a></span><span class='op'>(</span><span class='va'>c</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [[1]]
 #&gt; [1] 148.75223  45.55722
 #&gt; attr(,"class")
 #&gt; [1] "XY"    "POINT" "sfg"  
@@ -300,11 +312,11 @@ The northernmost position is what the government claims.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://suryu.me'>Shinya Uryu</a>.</p>
+  <p><p>Developed by <a href="https://suryu.me" class="external-link">Shinya Uryu</a>.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
 </div>
 
       </footer>
@@ -312,6 +324,8 @@ The northernmost position is what the government claims.</p>
 
   
 
+
+  
 
   </body>
 </html>
