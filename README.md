@@ -5,12 +5,12 @@
 
 *国絵図 (kuniezu)*
 
-**(Sorry, English version of README is not availavle for now.)**
+**(Sorry, English version of README is not available for now.)**
 
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental-1)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/kuniezu)](https://cran.r-project.org/package=kuniezu)
 [![minimal R
 version](https://img.shields.io/badge/R%3E%3D-3.3.0-blue.svg)](https://cran.r-project.org/)
@@ -98,7 +98,8 @@ move_jpn_rs(jgd2011_bbox) %>%
 
 [`{leaflet}`](https://CRAN.R-project.org/package=leaflet)をベースにしたインタラクティブな地図の背景として利用可能な地理院タイルを簡単に導入できます。
 
-利用の際には [地理院タイル一覧](http://maps.gsi.go.jp/development/ichiran.html)
+利用の際には
+[地理院タイル一覧](http://maps.gsi.go.jp/development/ichiran.html)
 のページを読み、利用するタイルの利用条件ならびに[国土地理院コンテンツ利用規約](https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html)に従ってください。
 
 ``` r
@@ -120,7 +121,7 @@ mapview::mapview(sf_extreme_points, map = gsi_tiles$pale)
 
 日本の国土に関するデータを用意しています。
 
-  - **`extreme_points`**: 離島を含めた日本の国土の端の座標
-  - **`jgd2011_bbox`**: 日本測地系2011平面直角座標の区域 …
+-   **`extreme_points`**: 離島を含めた日本の国土の端の座標
+-   **`jgd2011_bbox`**: 日本測地系2011平面直角座標の区域 …
     [国土地理院](https://www.gsi.go.jp/top.html)
     [地球地図日本](https://www.gsi.go.jp/kankyochiri/gm_jpn.html)のデータを元に瓜生真也が加工。

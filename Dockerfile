@@ -13,5 +13,6 @@ RUN set -x && \
     parzer \
     xml2 && \
   installGithub.r \
-    r-lib/revdepcheck && \
+    r-lib/revdepcheck \
+    r-lib/urlchecker && \
   rm -rf /tmp/downloaded_packages/ /tmp/*.rds
