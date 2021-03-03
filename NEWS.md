@@ -1,4 +1,4 @@
-# kuniezu (development version)
+# kuniezu 0.1.3
 
 * Fixed failing test due to new more-robust GEOS (3.9.0), thanks Roger Bivand [#6](https://github.com/uribo/kuniezu/issues/6)
 
