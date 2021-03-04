@@ -11,7 +11,7 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental-1)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/kuniezu)](https://cran.r-project.org/package=kuniezu)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/kuniezu)](https://cran.r-project.org/package=kuniezu)
 [![minimal R
 version](https://img.shields.io/badge/R%3E%3D-3.3.0-blue.svg)](https://cran.r-project.org/)
 ![R-CMD-check](https://github.com/uribo/kuniezu/workflows/R-CMD-check/badge.svg)
@@ -99,7 +99,7 @@ move_jpn_rs(jgd2011_bbox) %>%
 [`{leaflet}`](https://CRAN.R-project.org/package=leaflet)をベースにしたインタラクティブな地図の背景として利用可能な地理院タイルを簡単に導入できます。
 
 利用の際には
-[地理院タイル一覧](http://maps.gsi.go.jp/development/ichiran.html)
+[地理院タイル一覧](https://maps.gsi.go.jp/development/ichiran.html)
 のページを読み、利用するタイルの利用条件ならびに[国土地理院コンテンツ利用規約](https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html)に従ってください。
 
 ``` r

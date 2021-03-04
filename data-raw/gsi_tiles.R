@@ -2,7 +2,7 @@ library(sf)
 library(mapview)
 
 atr <-
-  paste0("<a href='http://maps.gsi.go.jp/development/ichiran.html' target='_blank'>",
+  paste0("<a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>",
          "\u5730\u7406\u9662\u30bf\u30a4\u30eb",
          "</a>")
 
