@@ -32,19 +32,26 @@ parse_lat_dohunbyo <- function(latitude) {
 #' @rdname replace_dohunbyo_kanji
 #' @export
 replace_dohunbyo_kanji <- function(x) {
-  if (!is_dohunbyo_kanji(x))
-    stop("The string given to x must be a kanji notation of longitude or latitude.")
-  chartr(
-    chartr(
-      stringr::str_remove_all(
-        chartr(x,
-               old = intToUtf8(c(26481, 35199, 21335, 21271)),
-               new = c("EWSN")),
-        pattern = paste0(intToUtf8(c(32239, 32076), multiple = TRUE), collapse = "|")),
-           old = intToUtf8(c(24230, 20998, 31186)),
-           new = intToUtf8(c(176, 8217, 46))),
-    old = intToUtf8(c(176, 8242, 8243)),
-    new = intToUtf8(c(176, 8217, 46))
+  unname(
+    sapply(
+      x,
+      function(x) {
+        if (!is_dohunbyo_kanji(x))
+          stop("The string given to x must be a kanji notation of longitude or latitude.")
+        chartr(
+          chartr(
+            stringr::str_remove_all(
+              chartr(x,
+                     old = intToUtf8(c(26481, 35199, 21335, 21271)),
+                     new = c("EWSN")),
+              pattern = paste0(intToUtf8(c(32239, 32076), multiple = TRUE), collapse = "|")),
+            old = intToUtf8(c(24230, 20998, 31186)),
+            new = intToUtf8(c(176, 8217, 46))),
+          old = intToUtf8(c(176, 8242, 8243)),
+          new = intToUtf8(c(176, 8217, 46))
+        )
+      }
+    )
   )
 }
 
