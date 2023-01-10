@@ -23,16 +23,16 @@ Depends:
 Imports: 
     dplyr (>= 0.8.5),
     ggplot2 (>= 3.3.0),
-    leaflet (>= 2.0.3),
     magrittr (>= 1.5),
     parzer (>= 0.1.4),
     purrr (>= 0.3.3),
     sf (>= 0.9.1),
     stringr (>= 1.4.0)
 Suggests: 
+    leaflet (>= 2.0.3),
     testthat (>= 2.1.0),
     covr (>= 3.5.0)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3

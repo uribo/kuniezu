@@ -16,7 +16,7 @@ Add a tile layer from Geospatial Information Authority of Japan (GSI).
 \details{
 Stores map tiles that can be used with leaflets.
 Please follow the terms and conditions of use for the applicable tile at
-\url{http://maps.gsi.go.jp/development/ichiran.html}
+\url{https://maps.gsi.go.jp/development/ichiran.html}
 when using it.
 It contains tiles that can be used as base maps for interactive maps based on leaflet.
 See example section its use in leaflet. To use a mapview,
